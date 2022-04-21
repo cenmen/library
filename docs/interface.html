@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script>
+      const dataList = [
+        {
+          address: '/api/detail',
+          method: 'POST',
+          desc: '获取详情',
+          header: {},
+          query: [
+            {key: 'id', desc: '索引', require: true, default: '123'}
+          ],
+          response: {
+            id: '123',
+            name: 'test'
+          }
+        }
+      ]
+    </script>
+    <script type="text/babel">
+      const { useRef, useEffect, useImperativeHandle } = React
+      function Interface({ address, method, desc, header, query, response } = {}) {
+        const requestQuery = query.map(() => {})
+        return (
+          <div class='container'>
+            <div class='address'>{address}</div>
+            <div class='method'>{method}</div>
+            <div class='method'>{desc}</div>
+            <div class='body'>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class='body'>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        )
+      }
+      const element = <App />
+      ReactDOM.render(element, document.getElementById('root'))
+    </script>
+  </body>
+</html>
